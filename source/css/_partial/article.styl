@@ -12,8 +12,6 @@
       display: block;
       margin: .2em auto 0;
       height: 2px
-//.article-inner
-//  overflow hidden
 
 .article-topping
   position absolute
@@ -27,6 +25,9 @@
 
 .article-meta
   clearfix()
+  .vertical
+    margin-left 5px
+    margin-right 5px
 
 .article-date
   @extend $block-caption
@@ -75,7 +76,6 @@
     margin-top 0.5em
     position relative
     text-align center
-  // http://webdesignerwall.com/tutorials/css-elastic-videos
   .video-container
     position relative
     padding-top (9 / 16 * 100) % // 16:9 ratio
@@ -101,7 +101,7 @@
     text-decoration none
     color body-color
     padding-left 2rem
-    border-left 4px solid body-color 
+    border-left 4px solid body-color
 
 .article-footer
   clearfix()
@@ -141,23 +141,6 @@
     border-radius: 9px;
     background-color tag-color
 
-.article-comment-link
-  float right
-  &:before
-    content "\ee0d"
-    font-family remixicon
-    padding-right 8px
-
-.article-share-link
-  cursor pointer
-  float right
-  margin-left 20px
-  &:before
-    content "\ef76"
-    font-family remixicon
-    padding-right 6px
-
-// Nav  Older & Newer
 .article-nav
   clearfix()
   position relative
@@ -180,84 +163,4 @@
 .article-nav-title
   font-size inherit
 
-// Share
-.article-share-box
-  position absolute
-  display none
-  background white
-  border-radius(.4rem)
-  box-shadow 1px 2px 10px rgba(0, 0, 0, 0.2)
-  border-radius 3px
-  margin-left -145px
-  overflow hidden
-  z-index 1
-  &.on
-    display block
-
-.article-share-input
-  width 100%
-  background none
-  box-sizing border-box
-  padding 0 1.5rem
-  outline none
-  border none
-  border-bottom border-width border-color solid
-  height 3.6rem
-  line-height 3.6rem
-
-.article-share-links
-  clearfix()
-
-$article-share-link
-  position relative
-  display block
-  float left
-  width 5rem
-  height 3.6rem
-  color body-color
-  text-align center
-  text-decoration none
-  &:before
-    font-size 20px
-    font-family remixicon
-    absolute-center(font-size-base)
-  &:hover
-    color white
-
-.article-share-twitter
-  @extend $article-share-link
-  &:before
-    content "\f068"
-  &:hover
-    background twitter-color
-    text-shadow 0 1px darken(twitter-color, 20%)
-
-.article-share-facebook
-  @extend $article-share-link
-  &:before
-    content "\ec30"
-  &:hover
-    background facebook-color
-    text-shadow 0 1px darken(facebook-color, 20%)
-
-.article-share-pinterest
-  @extend $article-share-link
-  &:before
-    content "\eea8"
-  &:hover
-    background pinterest-color
-    text-shadow 0 1px darken(pinterest-color, 20%)
-
-.article-share-google
-  @extend $article-share-link
-  &:before
-    content "\ed15"
-  &:hover
-    background google-color
-    text-shadow 0 1px darken(google-color, 20%)
-
-
 @import "tocbot"
-@import "gallery"
-@import "albums"
-@import "justifiedGallery"

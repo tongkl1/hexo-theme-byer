@@ -1,0 +1,75 @@
+.transition, .transition img
+  transition-property background-color, 'border-color', opacity
+  transition-duration .7s
+  transition-timing-function ease-in-out
+  transition-delay 0s
+
+.moon
+  background body-background-moon
+  color: body-color-moon
+  ::selection
+    background secondary-color-moon
+    color #000
+  .bg-box
+    #sun
+      opacity 0
+    #moon
+      opacity 1
+  .archive-year-wrap .archive-year, .archive-article-date, .article-date, .article-category-link
+    color secondary-color-moon
+    &:hover
+      color secondary-color-moon
+  .article
+    .sea-center::after
+      border-bottom-color sea-blue
+  .article-header
+    .article-title
+      color body-color-moon
+      border-left-color body-color-moon
+  .article-entry
+    color body-color-moon
+  .article-tag-list
+    &:before
+      color top-background-moon
+    .article-tag-list-link
+      color body-color-moon
+      background-color top-background-moon
+  .article-entry
+    blockquote
+      color #999
+      border-left-color sea-blue
+    img
+      opacity 0.9
+  .articles
+    .article
+      &:not(:last-child)
+        border-bottom-color top-background-moon
+    .article-entry
+      border-color #909090
+  .footer
+    border-top-color second-background-moon
+    .outer
+      &>ul:first-child
+        border-bottom-color second-background-moon
+  .sidebar
+    background-color second-background-moon
+  .navbar
+    .nav
+      .nav-item-link
+        color secondary-color-moon
+        &:hover
+          opacity .8
+          background-color body-background-moon
+      .toggle-theme
+        #moon
+          opacity 1
+        #sun
+          opacity 0
+  .navbar-toggle
+    background none
+  a.toc-link
+    color body-color-moon
+  .toc-link::before
+    background sea-blue
+  .is-active-link::before
+    background-color water
