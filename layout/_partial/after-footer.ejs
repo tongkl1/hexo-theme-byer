@@ -1,151 +1,98 @@
-<%- js('/js/jquery-2.0.3.min') %>
-<%- js('/js/jquery.justifiedGallery.min') %>
-<%- js('/js/lazyload.min') %>
-<%- js('/js/share') %>
-<% if (theme.fancybox){ %>
-<%- js('fancybox/jquery.fancybox.min') %>
-<% } %>
+<%- js('/js/jquery-3.4.1.min') %>
+
+<script>
+  (function ($) {
+    // scroll down
+    $(document).ready(function ($) {
+      $('.anchor').click(function (e) {
+        e.preventDefault();
+        $('main').animate({ scrollTop: $('.cover').height() }, 'smooth');
+      });
+    });
+    // Mobile nav
+    var $content = $('.content'), $sidebar = $('.sidebar');
+
+    $('.navbar-toggle').on('click', function () {
+      $content.toggleClass('on');
+      $sidebar.toggleClass('on');
+    });
+
+    $($content).on('click', function () {
+      $content.removeClass('on');
+      $sidebar.removeClass('on');
+    });
+  })(jQuery);
+</script>
 
 <% if (theme.subtitle.enable){ %>
 <script>
   try {
     var typed = new Typed("#subtitle", {
-    strings: ['<%= theme.subtitle.text %>','<%= theme.subtitle.text2 %>','<%= theme.subtitle.text3 %>'],
-    startDelay: <%= theme.subtitle.startDelay %>,
-    typeSpeed: <%= theme.subtitle.typeSpeed %>,
-    loop: <%= theme.subtitle.loop %>,
-    backSpeed: <%= theme.subtitle.backSpeed %>,
-    showCursor: <%= theme.subtitle.showCursor %>
+      strings: ['<%= theme.subtitle.text %>', '<%= theme.subtitle.text2 %>', '<%= theme.subtitle.text3 %>'],
+      startDelay: <%= theme.subtitle.startDelay %>,
+      typeSpeed: <%= theme.subtitle.typeSpeed %>,
+      loop: <%= theme.subtitle.loop %>,
+      backSpeed: <%= theme.subtitle.backSpeed %>,
+      showCursor: <%= theme.subtitle.showCursor %>
     });
-  } catch (e) {}
-  
+  } catch (err) {}
 </script>
 <% } %>
 
 <% if (theme.toc && is_post()){ %>
 <%- js('/js/tocbot.min') %>
 <script>
-  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
   tocbot.init({
     tocSelector: '.tocbot',
     contentSelector: '.article-entry',
     headingSelector: 'h1, h2, h3, h4, h5, h6',
     hasInnerContainers: true,
     scrollSmooth: true,
-    scrollContainer:'main',
+    scrollContainer: 'main',
     positionFixedSelector: '.tocbot',
     positionFixedClass: 'is-position-fixed',
     fixedSidebarOffset: 'auto',
     onClick: (e) => {
       $('.toc-link').removeClass('is-active-link');
-      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
-      $(e.target.hash).scrollIntoView();
+      $(`a[href="#${e.target.innerText}"]`).addClass('is-active-link');
+      document.getElementById(`${e.target.innerText}`).scrollIntoView();
       return false;
     }
   });
 </script>
 <% } %>
 
+<% if (!page.__index && theme.fancybox){ %>
+<link rel="stylesheet" href="<%- config.root %>fancybox/jquery.fancybox.min.css" media="screen" type="text/css">
+<script src="<%- config.root %>fancybox/jquery.fancybox.min.js"></script>
 <script>
-(function ($) {
-  //
-  // Share
-  $('.share-outer').click(()=>$('.share-wrap').fadeToggle())
-
-  //
-  // fancybox
-  if ($.fancybox) {
-    $('[data-fancybox]').fancybox({
-      protect: true
-    });
-  }
-
-  //
-  // lazyload
-  $("img.lazy").lazyload({
-    effect: "fadeIn"
-  });
-
-  //
-  // justifiedGallery
-  $('#gallery').justifiedGallery({
-    rowHeight: 200,
-    margins: 5
-  });
-
-  // scroll down
-  $(document).ready(function ($) {
-    $('.anchor').click(function (e) {
-      e.preventDefault();
-      $('main').animate({ scrollTop: $('.cover').height() }, 'smooth');
-    });
-  });
-
-  // To top
   (function ($) {
-    // When to show the scroll link
-    // higher number = scroll link appears further down the page
-    var upperLimit = 1000;
-
-    // Our scroll link element
-    var scrollElem = $('#totop');
-
-    // Scroll to top speed
-    var scrollSpeed = 1600;
-
-    // Show and hide the scroll to top link based on scroll position
-    scrollElem.hide();
-    $('.content').scroll(function () {
-      var scrollTop = $('.content').scrollTop();
-      if (scrollTop > upperLimit) {
-        $(scrollElem).stop().fadeTo(300, 1); // fade back in
-      } else {
-        $(scrollElem).stop().fadeTo(300, 0); // fade out
-      }
+    $('.content').each(function (i) {
+      $(this).find('img').each(function () {
+        if (!$(this).hasClass('nofancybox')) {
+          var alt = this.alt;
+          var src = this.src.split('.');
+          if (src.length > 1) { var tail = src.pop(); src = src.join('.') + '-full.' + tail; } else { src = src.join('.'); }
+          if (alt) { $(this).after('<span class="caption">' + alt + '</span>'); }
+          $(this).wrap('<a href="' + src + '" title="' + alt + '" data-fancybox="gallery" rel="gallery' + i + '" />');
+        }
+      });
     });
-
-    // Scroll to top animation on click
-    $(scrollElem).click(function () {
-      $('.content').animate({ scrollTop: 0 }, scrollSpeed); return false;
-    });
+    $.fancybox.defaults.animationEffect = 'fade';
+    $.fancybox.defaults.transitionEffect = 'fade';
+    $.fancybox.defaults.buttons = ['close'];
   })(jQuery);
-
-  // Mobile nav
-  var $content = $('.content'),
-    $sidebar = $('.sidebar');
-
-  $('.navbar-toggle').on('click', function () {
-    $content.toggleClass('on');
-    $sidebar.toggleClass('on');
-  });
-
-  $($content).on('click', function () {
-    $content.removeClass('on');
-    $sidebar.removeClass('on');
-  });
-
-  if (window.matchMedia("(min-width: 768px)").matches) {
-    $content.addClass('on');
-    $sidebar.addClass('on');
-  }
-
-  // reward
-  $('#reward-btn').on('click', function () {
-    $('#reward').fadeIn(150)
-    $('#mask').fadeIn(150)
-  });
-  $('#reward .close, #mask').on('click', function () {
-    $('#mask').fadeOut(100)
-    $('#reward').fadeOut(100)
-  })
-})(jQuery);
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
-
-<% if (theme.image_viewer){ %>
-<%- partial('viewer') %>
 <% } %>
 
-<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+<% if (theme.mathjax.enable && page.math){ %>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {
+            inlineMath: [ ['$','$'] ],
+            displayMath: [ ['$$','$$'] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            messageStyle: 'none'}});
+  </script>
+<script src="<%- config.root %><%- theme.mathjax.path %>?config=TeX-AMS_HTML-full"></script>
+<% } %>

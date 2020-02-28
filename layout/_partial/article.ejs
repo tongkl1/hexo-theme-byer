@@ -12,9 +12,6 @@
     <div class="article-meta">
       <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
       <%- partial('post/category') %>
-      <% if(theme.word_count && theme.word_count.enable && !post.no_word_count){%>
-      <%- partial('post/word') %>
-      <% } %>
     </div>
     <% } %>
 
@@ -25,8 +22,6 @@
     <% if (theme.excerpt_all&&index){ %>
     <% }else{ %>
     <div class="article-entry" itemprop="articleBody">
-      <%- partial('post/justifiedGallery') %>
-      <%- partial('post/gallery') %>
       <% if (post.excerpt && index){ %>
       <%- post.excerpt %>
       <% if (theme.excerpt_link){ %>
@@ -35,19 +30,10 @@
       <% } else { %>
       <%- post.content %>
       <% } %>
-      <!-- reward -->
-      <% if ((theme.reward_type === 2 || (theme.reward_type === 1 && post.reward)) && !index && !post.no_reward){ %>
-      <div id="reward-btn">
-        打赏
-      </div>
-      <% } %>
     </div>
     <% } %>
     
     <footer class="article-footer">
-      <% if (!index && theme.share_enable){ %>
-          <%- partial('post/share') %>
-      <% } %>
       <%- partial('post/tag') %>
 
     </footer>

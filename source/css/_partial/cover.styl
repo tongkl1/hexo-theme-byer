@@ -10,6 +10,7 @@
   position relative
   min-width 100%
   height 100vh
+  user-select: none;
   .bg-box
     width 100%
     height 100%
@@ -19,6 +20,13 @@
       height 100vh
       object-fit cover
       object-position center center
+      position absolute
+      top 0
+      left 0
+    #moon
+      opacity 0
+    #sun
+      opacity 1
 .cover-inner
   position absolute
   top 50%
@@ -48,12 +56,14 @@
   bottom 10px
   left 0
   width 100%
-  a > i
-    font-size 3rem
-    color white
-    animation down 1s linear infinite
-    &:hover
-      color sea
+  a
+    cursor pointer
+    i
+      font-size 3rem
+      color white
+      animation down 5s cubic-bezier(.45,1.1,.32,.99) infinite
+      &:hover
+        color gray
 
 .to_top
   position fixed
@@ -72,12 +82,6 @@
   background-color rgba(0,0,0,.8)
   z-index 9998
   display none
-
-.word_count
-  margin-top 5px
-  color darken(gray,30%)
-  padding-bottom 1rem
-  border-bottom 1px solid darken(froth-light,2%)
 
 // Media Query
 @media (max-width: 768px)
