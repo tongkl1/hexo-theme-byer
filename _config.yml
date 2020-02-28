@@ -78,9 +78,6 @@ alipay: /images/alipay.jpg
 # 微信二维码图片地址
 weixin: /images/wechat.jpg
 
-# 是否启用搜索
-# 需要安装hexo-generator-searchdb(https://github.com/theme-next/hexo-generator-searchdb)
-search: true
 
 # RSS订阅(先安装hexo-generator-feed插件，再去博客根目录config进行配置)
 rss: /atom.xml
@@ -88,14 +85,10 @@ rss: /atom.xml
 # GitHub Ribbons-封面右上角的forkme
 github: 
   # (关闭请设置为false)
-  url: https://github.com/Shen-Yu/hexo-theme-ayer
+  url: false
 
 # fancybox(仅用于相册展示，若需要可配置albums)
 fancybox: true
-
-# 访问量统计(不蒜子)
-busuanzi:
-  enable: true
 
 # 网站成立年份(默认为 2019，若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
 since: 2015
