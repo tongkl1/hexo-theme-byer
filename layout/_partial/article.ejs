@@ -44,19 +44,6 @@
     </div>
     <% } %>
     
-      <!-- copyright -->
-      <% if (((theme.copyright_type === 2) || (theme.copyright_type === 1 && post.copyright)) && !index){ %>
-        <div class="declare">
-          <ul class="post-copyright">
-            <li>
-              <i class="ri-copyright-line"></i>
-              <strong>版权声明： </strong s>
-              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
-                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
-            </li>
-          </ul>
-        </div>
-        <% } %>
     <footer class="article-footer">
       <% if (!index && theme.share_enable){ %>
           <%- partial('post/share') %>
@@ -69,18 +56,6 @@
 
   <% if (!index){ %>
   <%- partial('post/nav') %>
-  <% } %>
-
-  <% if (theme.valine && theme.valine.enable && !post.no_valine){ %>
-  <%- partial('post/valine', {
-            key: post.slug,
-            title: post.title,
-            url: config.url+url_for(post.path)
-          }) %>
-  <% } %>
-
-  <% if (is_post()) { %>
-  <%- partial('post/gitalk') %>
   <% } %>
 
 </article>

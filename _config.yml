@@ -78,41 +78,12 @@ alipay: /images/alipay.jpg
 # 微信二维码图片地址
 weixin: /images/wechat.jpg
 
-# 版权声明
-# 版权声明type设定：0-关闭版权声明； 1-文章对应的md文件里有copyright: true属性，才有版权声明； 2-所有文章均有版权声明
-copyright_type: 2
-
 # 是否启用搜索
 # 需要安装hexo-generator-searchdb(https://github.com/theme-next/hexo-generator-searchdb)
 search: true
 
 # RSS订阅(先安装hexo-generator-feed插件，再去博客根目录config进行配置)
 rss: /atom.xml
-
-# 评论：1、Valine(推荐)；2、Gitalk
-
-# 1、Valine[一款快速、简洁且高效的无后端评论系统](https://github.com/xCss/Valine)
-# 启用Valine必须先创建leancloud应用， 获取 id|key 填入即可
-leancloud:  
-  enable: true
-  app_id: #
-  app_key: #
-# Valine配置
-valine:
-  enable: true # 是否启用
-  verify: false # 是否启用防垃圾验证
-  notify: false # 是否开启邮件提醒(https://valine.js.org/notify.html)
-  avatar: mp # 头像样式(https://valine.js.org/avatar.html)
-  placeholder: 给我的文章加点评论吧~ # placeholder
-
-# 2、Gitalk(https://github.com/gitalk/gitalk)
-gitalk:
-  enable: false # true
-  clientID: # GitHub Application Client ID
-  clientSecret: # Client Secret
-  repo: # Repository name
-  owner: # GitHub ID
-  admin: # GitHub ID
 
 # GitHub Ribbons-封面右上角的forkme
 github: 
@@ -126,19 +97,8 @@ fancybox: true
 busuanzi:
   enable: true
 
-# 友盟cnzz统计(url填js代码src链接)
-cnzz:
-  enable: true
-  url: https://s9.cnzz.com/z_stat.php?id=1278069914&web_id=1278069914
-
-# 数学公式
-mathjax: false
-
 # 网站成立年份(默认为 2019，若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
 since: 2015
-
-# 是否显示页脚信息(建议保留，有助于本主题的推广)
-pageFooter: true
 
 #ICP备案信息尾部显示
 icp:
