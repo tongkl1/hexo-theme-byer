@@ -1,0 +1,12 @@
+<% if (theme.moon.enable) { %>
+<script>
+  <% if (theme.moon.system) { %>
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.moon) {
+    localStorage.moon = 1;
+  }
+  <% } %>
+  if (Number(localStorage.moon)) {
+    document.querySelector('body').className = 'moon';
+  }
+</script>
+<% } %>

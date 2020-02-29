@@ -8,7 +8,7 @@ menu:
 # 站点次标题和打字动效
 # https://github.com/mattboldt/typed.js
 subtitle:
-  enable: true  # 是否开启动效
+  enable: false  # 是否开启动效
   text: 面朝大海，春暖花开  # 显示的文字
   text2: 愿你一生努力，一生被爱   # 滚动播放，如果不需要可以留空
   text3: 想要的都拥有，得不到的都释怀  # 最多支持三段文字
@@ -23,14 +23,31 @@ favicon: /favicon.ico
 logo: /images/ayer-side.svg
 
 # 封面配置
-# enable-是否启用封面；path-封面背景图；logo-封面logo
+# 双封面模式需配合月模式使用
+# 请不要开启双封面模式并填写两个相同的封面, 会造成不必要的性能损失
+# 此时请关闭双封面模式并在default填写封面路径
 cover:
-  enable: true
-  path: /images/cover1.jpg  # images目录下附送多张美图，可更换
-  logo: false #/images/ayer.svg，如果不要直接设置成false
+  enable: true                   # 是否启用封面
+  logo: false                    # 是否使用封面logo: 填写logo路径或false
+  dual: true                     # dual-双封面模式; 开启后日月模式有自己的封面
+  path:                          # path-封面背景图
+    default: /images/cover1.jpg     # 如果dual填false, 将采用这张封面图
+    sun: /images/cover1.jpg         # 日模式封面
+    moon: /images/cover2.jpg       # 月模式封面
+
+# 月亮模式 (黑暗模式)
+moon:
+  enable: true                   # 开启后可切换日模式和月模式
+  switch: true                   # 开启后侧边栏中显示切换主题按钮
+  system: true                   # 开启后随系统亮暗主题自动切换
 
 # 页面顶部进度条  
-progressBar: ture
+progressBar:
+  enable: false
+
+# 返回顶部按钮
+toTop:
+  enable: false
 
 # 文章配置
 # 文章太长，截断按钮文字(在需要截断的行增加此标记：<!--more-->)
@@ -50,23 +67,25 @@ nav_text:
 toc: true
 
 # RSS订阅(先安装hexo-generator-feed插件，再去博客根目录config进行配置)
+# 关闭请填false
 rss: /atom.xml
 
 # GitHub Ribbons-封面右上角的forkme
-github: 
-  # (关闭请设置为false)
+github:
+  # 填写false或url
   url: false
 
 # fancybox
 fancybox: true
 
 # MathJax
+# 路径自行指定，可以使用CDN
 mathjax:
   enable: true
-  path: MathJax/MathJax.js
+  path: /MathJax/MathJax.js?config=TeX-AMS_HTML-full
 
 # 网站成立年份(默认为 2019，若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
-since: 2015
+since: 2019
 
 #ICP备案信息尾部显示
 icp:
