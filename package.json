@@ -1,7 +1,7 @@
 {
-  "name": "ayer",
+  "name": "byer",
   "version": "1.0.0",
-  "description": "ayer 是一个轻量优雅的 Hexo 主题",
+  "description": "byer 是一个轻量优雅的 Hexo 主题",
   "main": "index.js",
   "dependencies": {
     "stylint": "^2.0.0"
@@ -16,5 +16,5 @@
     "light"
   ],
   "author": "shenyu",
-  "license": "ISC"
+  "license": "MIT"
 }

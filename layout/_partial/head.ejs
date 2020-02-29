@@ -24,7 +24,9 @@
   <link rel="shortcut icon" href="<%- theme.favicon %>" />
   <% } %>
   <%- css('css/style') %>
+  <% if (theme.progressBar.enable){ %>
   <%- js('/js/pace.min.js') %>
+  <% } %>
 </head>
 
 </html>

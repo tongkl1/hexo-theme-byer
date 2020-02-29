@@ -21,23 +21,85 @@
       $content.removeClass('on');
       $sidebar.removeClass('on');
     });
+
+    <% if (theme.moon.switch.button || theme.moon.switch.system){ %>
+    // Moon
+    var $body = $('body');
+    var $bgbox = $('.bg-box');
+    var transHandler;
+    var updateTheme = function() {
+      var moon = Number(localStorage.moon) === 1;
+      <% if (theme.cover.dual) { %>
+      if ($bgbox.children().length < 2) {
+        if (moon) {
+          $bgbox.prepend('<img id="moon" src="<%- theme.cover.path.moon %>" alt="image frame">');
+        } else {
+          $bgbox.prepend('<img id="sun" src="<%- theme.cover.path.sun %>" alt="image frame">');
+        }
+      }
+      <% } %>
+      clearTimeout(transHandler);
+      $body.addClass('transition');
+      $body.toggleClass('moon', moon);
+      transHandler = setTimeout(function () {
+        $body.removeClass('transition');
+      }, 1000);
+    };
+    <% if (theme.moon.switch.button) { %>
+    $('.toggle-theme').on('click', function () {
+      localStorage.moon = 1 - (Number(localStorage.moon) || 0);
+      updateTheme();
+    });
+    <% } %>
+    <% if (theme.moon.switch.system) { %>
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function(e) {
+      localStorage.moon = e.matches ? 1 : 0;
+      updateTheme();
+    });
+    <% } %>
+    <% } %>
   })(jQuery);
-</script>
 
 <% if (theme.subtitle.enable){ %>
-<script>
-  try {
-    var typed = new Typed("#subtitle", {
-      strings: ['<%= theme.subtitle.text %>', '<%= theme.subtitle.text2 %>', '<%= theme.subtitle.text3 %>'],
-      startDelay: <%= theme.subtitle.startDelay %>,
-      typeSpeed: <%= theme.subtitle.typeSpeed %>,
-      loop: <%= theme.subtitle.loop %>,
-      backSpeed: <%= theme.subtitle.backSpeed %>,
-      showCursor: <%= theme.subtitle.showCursor %>
-    });
-  } catch (err) {}
-</script>
+// Subtitle animation
+try {
+  var typed = new Typed("#subtitle", {
+    strings: ['<%= theme.subtitle.text %>', '<%= theme.subtitle.text2 %>', '<%= theme.subtitle.text3 %>'],
+    startDelay: <%= theme.subtitle.startDelay %>,
+    typeSpeed: <%= theme.subtitle.typeSpeed %>,
+    loop: <%= theme.subtitle.loop %>,
+    backSpeed: <%= theme.subtitle.backSpeed %>,
+    showCursor: <%= theme.subtitle.showCursor %>
+  });
+} catch (err) {}
 <% } %>
+
+<% if (theme.toTop.enable){ %>
+// To top
+(function ($) {
+  // When to show the scroll link
+  // higher number = scroll link appears further down the page
+  var upperLimit = 1000;
+  var scrollElem = $('#totop');
+  var scrollSpeed = 1600;
+
+  // Show and hide the scroll to top link based on scroll position
+  scrollElem.hide();
+  $('.content').scroll(function () {
+    var scrollTop = $('.content').scrollTop();
+    if (scrollTop > upperLimit) {
+      $(scrollElem).stop().fadeTo(300, 1); // fade back in
+    } else {
+      $(scrollElem).stop().fadeTo(300, 0); // fade out
+    }
+  });
+  // Scroll to top animation on click
+  $(scrollElem).click(function () {
+    $('.content').animate({ scrollTop: 0 }, scrollSpeed); return false;
+  });
+})(jQuery);
+<% } %>
+</script>
 
 <% if (theme.toc && is_post()){ %>
 <%- js('/js/tocbot.min') %>
@@ -94,5 +156,5 @@
             processEscapes: true,
             messageStyle: 'none'}});
   </script>
-<script src="<%- config.root %><%- theme.mathjax.path %>?config=TeX-AMS_HTML-full"></script>
+<script src="<%- theme.mathjax.path %>"></script>
 <% } %>

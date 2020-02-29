@@ -31,15 +31,24 @@ body
   text-size-adjust: 100%
   ::selection
     background sea-lighter
-    color froth
+    color white
 a
   color link-color
+  text-decoration none
   &:hover
     color link-hover-color
   &:active
     color link-active-color
   &.disabled
     color disabled-color
+.moon a
+  color link-color-moon
+  &:hover
+    color link-hover-color-moon
+  &:active
+    color link-active-color-moon
+  &.disabled
+    color disabled-color-moon
 ul, menu, dir
   margin 0
   padding 0
@@ -64,7 +73,8 @@ button
 @import "_partial/highlight"
 @import "_partial/mobile"
 @import "_partial/pace"
-@import "_partial/apple"
+@import "_partial/moon"
+@import "_partial/totop"
 
 if sidebar
   @import "_partial/sidebar"
