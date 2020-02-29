@@ -23,9 +23,13 @@ favicon: /favicon.ico
 logo: /images/ayer-side.svg
 
 # 封面配置
+<<<<<<< HEAD
 # 双封面模式需配合月模式使用
 # 请不要开启双封面模式并填写两个相同的封面, 会造成不必要的性能损失
 # 此时请关闭双封面模式并在default填写封面路径
+=======
+# enable-是否启用封面；path-封面背景图；logo-封面logo
+>>>>>>> 6fbdc828c4b61b7f3b3846ed2940f04b1dfddb66
 cover:
   enable: true                   # 是否启用封面
   logo: false                    # 是否使用封面logo: 填写logo路径或false
@@ -45,10 +49,13 @@ moon:
 progressBar:
   enable: false
 
+<<<<<<< HEAD
 # 返回顶部按钮
 toTop:
   enable: false
 
+=======
+>>>>>>> 6fbdc828c4b61b7f3b3846ed2940f04b1dfddb66
 # 文章配置
 # 文章太长，截断按钮文字(在需要截断的行增加此标记：<!--more-->)
 # 设置成''将不显示按钮
@@ -71,14 +78,20 @@ toc: true
 rss: /atom.xml
 
 # GitHub Ribbons-封面右上角的forkme
+<<<<<<< HEAD
 github:
   # 填写false或url
+=======
+github: 
+  # (关闭请设置为false)
+>>>>>>> 6fbdc828c4b61b7f3b3846ed2940f04b1dfddb66
   url: false
 
 # fancybox
 fancybox: true
 
 # MathJax
+<<<<<<< HEAD
 # 路径自行指定，可以使用CDN
 mathjax:
   enable: true
@@ -86,6 +99,14 @@ mathjax:
 
 # 网站成立年份(默认为 2019，若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
 since: 2019
+=======
+mathjax:
+  enable: true
+  path: MathJax/MathJax.js
+
+# 网站成立年份(默认为 2019，若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
+since: 2015
+>>>>>>> 6fbdc828c4b61b7f3b3846ed2940f04b1dfddb66
 
 #ICP备案信息尾部显示
 icp:
