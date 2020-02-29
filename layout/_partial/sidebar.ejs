@@ -15,6 +15,7 @@
 </nav>
 <nav class="navbar navbar-bottom">
   <ul class="nav">
+<<<<<<< HEAD
       <% if (theme.moon.enable && theme.moon.switch){ %>
         <li class="nav-item nav-item-link toggle-theme">
           <img id="moon" src="/images/moon.svg">
@@ -28,5 +29,14 @@
           </a>
         </li>
         <% } %>
+=======
+    <li class="nav-item">
+      <% if (theme.rss){ %>
+      <a class="nav-item-link" target="_blank" href="<%- url_for(theme.rss) %>" title="<%= __('rss_feed') %>">
+        <i class="ri-rss-line"></i>
+      </a>
+      <% } %>
+    </li>
+>>>>>>> 6fbdc828c4b61b7f3b3846ed2940f04b1dfddb66
   </ul>
 </nav>
