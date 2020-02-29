@@ -1,6 +1,10 @@
 <%- partial('_partial/head') %>
 
+<% if (!(theme.moon.switch.button || theme.moon.switch.system) && theme.moon.default) { %>
+<body class="moon">
+<% } else { %>
 <body>
+<% } %>
   <%- partial('_partial/header') %>
   <div id="app">
     <main class="content">

@@ -23,25 +23,26 @@ favicon: /favicon.ico
 logo: /images/ayer-side.svg
 
 # 封面配置
-# 双封面模式需配合月模式使用
+# 双封面模式仅在启用moon.switch.button和moon.switch.system中的至少一项时有效
 # 请不要开启双封面模式并填写两个相同的封面, 会造成不必要的性能损失
-# 此时请关闭双封面模式并在default填写封面路径
+# 若想在日月模式下使用相同封面, 请关闭双封面模式并在default填写封面路径
 cover:
   enable: true                   # 是否启用封面
   logo: false                    # 是否使用封面logo: 填写logo路径或false
-  dual: true                     # dual-双封面模式; 开启后日月模式有自己的封面
+  dual: false                    # dual-双封面模式; 具体逻辑见Repo中Readme
   path:                          # path-封面背景图
-    default: /images/cover1.jpg     # 如果dual填false, 将采用这张封面图
+    default: /images/cover1.jpg     # 如果关闭双封面模式, 将采用这张封面图
     sun: /images/cover1.jpg         # 日模式封面
     moon: /images/cover2.jpg       # 月模式封面
 
 # 月亮模式 (黑暗模式)
 moon:
-  enable: true                   # 开启后可切换日模式和月模式
-  switch: true                   # 开启后侧边栏中显示切换主题按钮
-  system: true                   # 开启后随系统亮暗主题自动切换
+  default: false                  # 开启后默认主题为月
+  switch:                         # 以下两项开启后可在日模式和月模式间切换
+    button: true                 # 开启后侧边栏中显示切换主题按钮
+    system: true                 # 开启后页面随系统亮暗主题自动切换; 具体逻辑见Repo中Readme
 
-# 页面顶部进度条  
+# 页面顶部进度条
 progressBar:
   enable: false
 

@@ -1,9 +1,15 @@
-<% if (theme.moon.enable) { %>
+<% if (theme.moon.switch.button || theme.moon.switch.system) { %>
 <script>
-  <% if (theme.moon.system) { %>
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.moon) {
-    localStorage.moon = 1;
-  }
+  <% if (theme.moon.default) { %>
+    if (!localStorage.moon) {
+      localStorage.moon = 1;
+    }
+  <% } else { %>
+    <% if (theme.moon.switch.system) { %>
+    if (!localStorage.moon && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      localStorage.moon = 1;
+    }
+    <% } %>
   <% } %>
   if (Number(localStorage.moon)) {
     document.querySelector('body').className = 'moon';

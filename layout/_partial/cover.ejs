@@ -8,7 +8,7 @@
   <% } %>
   <div class="cover-frame">
     <div class="bg-box">
-      <% if (theme.moon.enable && theme.cover.dual) { %>
+      <% if ((theme.moon.switch.button || theme.moon.switch.system) && theme.cover.dual) { %>
       <script>
         if (Number(localStorage.moon)) {
           document.querySelector('.bg-box').innerHTML = '<img id="moon" src="<%- theme.cover.path.moon %>" alt="image frame">';

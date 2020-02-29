@@ -22,8 +22,8 @@
       $sidebar.removeClass('on');
     });
 
+    <% if (theme.moon.switch.button || theme.moon.switch.system){ %>
     // Moon
-    <% if (theme.moon.enable){ %>
     var $body = $('body');
     var $bgbox = $('.bg-box');
     var transHandler;
@@ -45,13 +45,13 @@
         $body.removeClass('transition');
       }, 1000);
     };
-    <% if (theme.moon.switch) { %>
+    <% if (theme.moon.switch.button) { %>
     $('.toggle-theme').on('click', function () {
       localStorage.moon = 1 - (Number(localStorage.moon) || 0);
       updateTheme();
     });
     <% } %>
-    <% if (theme.moon.system) { %>
+    <% if (theme.moon.switch.system) { %>
     window.matchMedia('(prefers-color-scheme: dark)').addListener(function(e) {
       localStorage.moon = e.matches ? 1 : 0;
       updateTheme();
