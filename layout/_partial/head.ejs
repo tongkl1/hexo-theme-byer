@@ -23,7 +23,7 @@
   <% if (theme.favicon){ %>
   <link rel="shortcut icon" href="<%- theme.favicon %>" />
   <% } %>
-  <%- css('css/style') %>
+  <link rel="stylesheet" href="<%- theme.css.main %>">
   <% if (theme.progressBar.enable){ %>
   <script src="<%- theme.js.pace %>"></script>
   <% } %>

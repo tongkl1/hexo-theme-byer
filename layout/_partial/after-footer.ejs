@@ -125,8 +125,8 @@ try {
 <% } %>
 
 <% if (!page.__index && theme.fancybox){ %>
-<link rel="stylesheet" href="<%- config.root %>fancybox/jquery.fancybox.min.css" media="screen" type="text/css">
-<script src="<%- config.root %>fancybox/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="<%- theme.css.fancybox %>" media="screen" type="text/css">
+<script src="<%- theme.js.fancybox %>"></script>
 <script>
   (function ($) {
     $('.content').each(function (i) {

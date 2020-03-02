@@ -22,10 +22,16 @@ subtitle:
 favicon: /favicon.ico
 logo: /images/ayer-side.svg
 
+# 所有css路径
+css:
+  main: /css/style.css
+  fancybox: /fancybox/jquery.fancybox.min.css
+
 # 所有js的路径
 # 可以使用cdn
 js:
   jquery: /js/jquery-3.4.1.min.js
+  fancybox: /fancybox/jquery.fancybox.min.js
   typed: /js/typed.min.js
   pace: /js/pace.min.js
   tocbot: /js/tocbot.min.js
