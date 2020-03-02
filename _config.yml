@@ -22,6 +22,16 @@ subtitle:
 favicon: /favicon.ico
 logo: /images/ayer-side.svg
 
+# 所有js的路径
+# 可以使用cdn
+js:
+  jquery: /js/jquery-3.4.1.min.js
+  typed: /js/typed.min.js
+  pace: /js/pace.min.js
+  tocbot: /js/tocbot.min.js
+  # 由于mathjax本体太大，请自行下载mathjax并配置，或填写https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.min.js
+  mathjax: //cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS_HTML-full
+
 # 封面配置
 # 双封面模式仅在启用moon.switch.button和moon.switch.system中的至少一项时有效
 # 请不要开启双封面模式并填写两个相同的封面, 会造成不必要的性能损失
@@ -80,10 +90,8 @@ github:
 fancybox: true
 
 # MathJax
-# 路径自行指定，可以使用CDN
 mathjax:
   enable: true
-  path: /MathJax/MathJax.js?config=TeX-AMS_HTML-full
 
 # 网站成立年份(默认为 2019，若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
 since: 2019

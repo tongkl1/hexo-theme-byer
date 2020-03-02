@@ -1,4 +1,4 @@
-<%- js('/js/jquery-3.4.1.min') %>
+<script src="<%- theme.js.jquery %>"></script>
 
 <script>
   (function ($) {
@@ -102,7 +102,7 @@ try {
 </script>
 
 <% if (theme.toc && is_post()){ %>
-<%- js('/js/tocbot.min') %>
+<script src="<%- theme.js.tocbot %>"></script>
 <script>
   tocbot.init({
     tocSelector: '.tocbot',
@@ -155,6 +155,6 @@ try {
             skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
             processEscapes: true,
             messageStyle: 'none'}});
-  </script>
-<script src="<%- theme.mathjax.path %>"></script>
+</script>
+<script src="<%- theme.js.mathjax %>"></script>
 <% } %>
