@@ -4,6 +4,13 @@
   transition-timing-function ease-in-out
   transition-delay 0s
 
+.navbar .nav .toggle-theme
+  padding 0.6rem
+  &:before
+    content ri-sun
+    font-family remixicon
+    font-size 1.3em
+
 .moon
   background body-background-moon
   color: body-color-moon
@@ -60,11 +67,8 @@
         &:hover
           opacity .8
           background-color body-background-moon
-      .toggle-theme
-        #moon
-          opacity 1
-        #sun
-          opacity 0
+      .toggle-theme:before
+        content ri-moon
   .navbar-toggle
     background none
   a.toc-link

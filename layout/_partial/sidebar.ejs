@@ -16,17 +16,14 @@
 <nav class="navbar navbar-bottom">
   <ul class="nav">
       <% if (theme.moon.switch.button){ %>
-        <li class="nav-item nav-item-link toggle-theme">
-          <img id="moon" src="/images/moon.svg">
-          <img id="sun" src="/images/sun.svg">
-        </li>
-        <% } %>
-        <% if (theme.rss){ %>
-        <li class="nav-item">
-          <a class="nav-item-link" target="_blank" href="<%- url_for(theme.rss) %>" title="<%= __('rss_feed') %>">
-            <i class="ri-rss-line"></i>
-          </a>
-        </li>
-        <% } %>
+      <li class="nav-item nav-item-link toggle-theme"></li>
+      <% } %>
+      <% if (theme.rss){ %>
+      <li class="nav-item">
+        <a class="nav-item-link" target="_blank" href="<%- url_for(theme.rss) %>" title="<%= __('rss_feed') %>">
+          <i class="ri-rss-line"></i>
+        </a>
+      </li>
+      <% } %>
   </ul>
 </nav>
