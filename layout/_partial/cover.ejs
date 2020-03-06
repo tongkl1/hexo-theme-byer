@@ -21,7 +21,7 @@
       <% } %>
     </div>
     <div class="cover-inner text-center text-white">
-      <h1><a href="<%- url_for() %>"><%= config.title %></a></h1>
+      <h1><%= config.title %></h1>
       <div id="subtitle-box">
         <% if (theme.subtitle.enable) { %>
         <span id="subtitle"></span>
@@ -43,5 +43,5 @@
 <% } %>
 
 <% if (theme.subtitle.enable){ %>
-<%- js('/js/typed.min') %>
+<script src="<%- theme.js.typed %>"></script>
 <% } %>

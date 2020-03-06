@@ -30,6 +30,14 @@ center-y()
   top 50%
   transform translateY(-50%)
 
+box-shadow(param)
+  -webkit-box-shadow param
+  box-shadow param
+
+box-sizing(param)
+  -webkit-box-sizing param
+  -moz-box-sizing param
+  box-sizing param
 
 border-radius(n)
   -webkit-border-radius n
@@ -49,11 +57,24 @@ border-bottom-radius(n)
   border-bottom-right-radius n
 
 transition(transition)
+  -webkit-transition transition
+  -moz-transition transition
+  -o-transition transition
+  -ms-transition transition
   transition transition
 
 rounded-circle(size)
   width size
   height size
   border-radius size / 2
+
+pointer-events(param)
+  -webkit-pointer-events param
+  pointer-events param
+
+user-select(param)
+  -webkit-user-select param
+  -moz-user-select param
+  user-select param
 
 // Media queries
