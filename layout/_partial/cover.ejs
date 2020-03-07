@@ -1,4 +1,3 @@
-<% if (theme.cover.enable) { %>
 <section class="cover">
   <% if (theme.github && theme.github.url){ %>
   <%# "GitHub Ribbons" %>
@@ -7,6 +6,7 @@
       data-recalc-dims="1"></a>
   <% } %>
   <div class="cover-frame">
+    <% if (theme.cover.enable) { %>
     <div class="bg-box">
       <% if ((theme.moon.switch.button || theme.moon.switch.system) && theme.cover.dual) { %>
       <script>
@@ -35,22 +35,9 @@
         <% } %>
       </div>
     </div>
-  </div>
-  <div class="cover-learn-more">
-    <a class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
-<% } else { %>
-<section class="cover">
-  <% if (theme.github && theme.github.url){ %>
-  <%# "GitHub Ribbons" %>
-  <a class="forkMe" href="<%=theme.github.url%>" target="_blank"><img width="149" height="149"
-      src="<%- url_for('images/forkme.png') %>" class="attachment-full size-full" alt="Fork me on GitHub"
-      data-recalc-dims="1"></a>
-  <% } %>
-  <div class="cover-frame">
-    <div class="cover-inner-plain text-center text-primary">
-      <h1><a href="<%- url_for() %>"><%= config.title %></a></h1>
+    <% } else { %>
+    <div class="cover-inner plain text-center text-primary">
+      <h1><a href="<%- url_for() %>"></a><%= config.title %></a></h1>
       <div id="subtitle-box">
         <% if (theme.subtitle.enable) { %>
         <span id="subtitle"></span>
@@ -64,12 +51,12 @@
         <% } %>
       </div>
     </div>
+    <% } %>
   </div>
   <div class="cover-learn-more">
     <a class="anchor"><i class="ri-arrow-down-line"></i></a>
   </div>
 </section>
-<% } %>
 
 <% if (theme.subtitle.enable){ %>
 <script src="<%- theme.js.typed %>"></script>
